@@ -1,0 +1,17 @@
+<%= form_for(mva) do |f| %>
+  <% if mva.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mva.errors.count, "error") %> prohibited this mva from being saved:</h2>
+
+      <ul>
+      <% mva.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<%= form_for(icompany) do |f| %>
+  <% if icompany.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(icompany.errors.count, "error") %> prohibited this icompany from being saved:</h2>
+
+      <ul>
+      <% icompany.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

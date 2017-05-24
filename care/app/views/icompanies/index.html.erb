@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Icompanies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @icompanies.each do |icompany| %>
+      <tr>
+        <td><%= link_to 'Show', icompany %></td>
+        <td><%= link_to 'Edit', edit_icompany_path(icompany) %></td>
+        <td><%= link_to 'Destroy', icompany, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Icompany', new_icompany_path %>

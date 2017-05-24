@@ -1,0 +1,2 @@
+module EhisHelper
+end
