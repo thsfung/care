@@ -11,8 +11,8 @@ class CreateStaffs < ActiveRecord::Migration[5.0]
     	t.string :province
     	t.string :city
     	t.string :postalcode
-    	t.integer :homephone
-    	t.integer :cellphone
+    	t.bigint :homephone
+    	t.bigint :cellphone
     	t.string :type
 
       t.timestamps

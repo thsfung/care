@@ -7,9 +7,9 @@ class CreatePatients < ActiveRecord::Migration[5.0]
     	t.string :email
     	t.date :birthday
     	t.string :sex
-    	t.integer :homephone
-    	t.integer :cellphone
-    	t.string :workphone
+    	t.bigint :homephone
+    	t.bigint :cellphone
+    	t.bigint :workphone
     	t.integer :extension
     	t.string :primaryaddress
     	t.string :secondaryaddress

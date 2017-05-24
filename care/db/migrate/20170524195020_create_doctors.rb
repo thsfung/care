@@ -9,7 +9,7 @@ class CreateDoctors < ActiveRecord::Migration[5.0]
     	t.string :province
     	t.string :city
     	t.string :postalcode
-    	t.integer :workphone
+    	t.bigint :workphone
     	t.integer :extension
     	t.integer :fax
     	t.string :email
