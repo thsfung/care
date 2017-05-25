@@ -11,6 +11,49 @@
     </div>
   <% end %>
 
+  <%= f.label :firstname %>
+  <%= f.text_field :firstname %><br />
+
+  <%= f.label :lastname %>
+  <%= f.text_field :lastname %><br />
+
+  <%= f.label :email %>
+  <%= f.text_field :email %><br />
+
+  <%= f.label :birthday %>
+  <%= f.date_field :birthday %><br />
+
+  <%= f.label :sex %>
+  <%= f.select :sex, ['M', 'F', 'other'] %><br />
+  
+  <%= f.label :homephone %>
+  <%= f.text_field :homephone %><br />
+
+  <%= f.label :cellphone %>
+  <%= f.text_field :cellphone %><br />
+
+  <%= f.label :workphone %>
+  <%= f.text_field :workphone %><br />
+
+  <%= f.label :extension %>
+  <%= f.text_field :extension %><br />
+
+  <%= f.label :primaryaddress %>
+  <%= f.text_field :primaryaddress %><br />
+
+  <%= f.label :country %>
+  <%= f.text_field :country %><br />
+
+  <%= f.label :province %>
+  <%= f.text_field :province %><br />
+
+  <%= f.label :city %>
+  <%= f.text_field :city %><br />
+
+  <%= f.label :postalcode %>
+  <%= f.text_field :postalcode %><br />
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

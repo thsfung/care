@@ -1,4 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<%= @patient.firstname %>&nbsp<%= @patient.lastname %><br />
+<%= @patient.email %><br />
+<%= @patient.birthday %><br />
+<%= @patient.sex %><br />
+<%= @patient.homephone %><br />
+<%= @patient.cellphone %><br />
+<%= @patient.workphone %><br />
+<%= @patient.extension %><br />
+<%= @patient.primaryaddress %><br />
+<%= @patient.country %><br />
+<%= @patient.province %><br />
+<%= @patient.city %><br />
+<%= @patient.postalcode %><br />
+
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>
