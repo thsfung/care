@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524195204) do
+ActiveRecord::Schema.define(version: 20170627204410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170524195204) do
   create_table "invoices", force: :cascade do |t|
     t.date     "issuedate"
     t.float    "outstandingamt"
+    t.integer  "patient_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -73,6 +74,13 @@ ActiveRecord::Schema.define(version: 20170524195204) do
     t.string   "company"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "patient_doctors", force: :cascade do |t|
+    t.integer  "doctor_id"
+    t.integer  "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "patients", force: :cascade do |t|
@@ -131,6 +139,8 @@ ActiveRecord::Schema.define(version: 20170524195204) do
 
   create_table "visits", force: :cascade do |t|
     t.date     "visitdate"
+    t.integer  "patient_id"
+    t.integer  "invoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

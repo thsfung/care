@@ -1,5 +1,6 @@
 class Doctor < ApplicationRecord
 
-	has_and_belongs_to_many :patients
+	has_many :patient_doctors
+	has_many :patients, :through => :patient_doctors
 	
 end

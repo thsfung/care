@@ -3,6 +3,8 @@ class CreateVisits < ActiveRecord::Migration[5.0]
     create_table :visits do |t|
 
     	t.date :visitdate
+    	t.integer :patient_id
+    	t.integer :invoice_id
 
       t.timestamps
     end
