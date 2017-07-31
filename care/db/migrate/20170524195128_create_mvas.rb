@@ -10,6 +10,7 @@ class CreateMvas < ActiveRecord::Migration[5.0]
     	t.string :adjustorname
     	t.integer :branchnumber
     	t.string :company
+	t.integer :insurance_id
 
       t.timestamps
     end

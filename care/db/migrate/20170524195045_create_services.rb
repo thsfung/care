@@ -6,6 +6,7 @@ class CreateServices < ActiveRecord::Migration[5.0]
     	t.string :description
     	t.string :type
     	t.boolean :retire
+	t.integer :visit_id
 
       t.timestamps
     end

@@ -5,6 +5,7 @@ class CreateInsurances < ActiveRecord::Migration[5.0]
     	t.integer :policynumber
     	t.string :type
     	t.date :dateofloss
+	t.integer :patient_id
 
       t.timestamps
     end

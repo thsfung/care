@@ -14,6 +14,8 @@ class CreateStaffs < ActiveRecord::Migration[5.0]
     	t.bigint :homephone
     	t.bigint :cellphone
     	t.string :type
+	t.integer :visit_id
+	t.integer :patient_id
 
       t.timestamps
     end

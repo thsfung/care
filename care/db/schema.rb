@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.string   "holdername"
     t.date     "holderbday"
     t.string   "relationshiptoclient"
+    t.integer  "insurance_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.integer  "policynumber"
     t.string   "type"
     t.date     "dateofloss"
+    t.integer  "patient_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -72,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.string   "adjustorname"
     t.integer  "branchnumber"
     t.string   "company"
+    t.integer  "insurance_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
@@ -104,9 +107,10 @@ ActiveRecord::Schema.define(version: 20170627204410) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.integer  "amtdue"
+    t.float    "amtdue"
     t.string   "type"
-    t.integer  "amtpaid"
+    t.float    "amtpaid"
+    t.integer  "invoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -116,6 +120,7 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.string   "description"
     t.string   "type"
     t.boolean  "retire"
+    t.integer  "visit_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -133,6 +138,8 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.bigint   "homephone"
     t.bigint   "cellphone"
     t.string   "type"
+    t.integer  "visit_id"
+    t.integer  "patient_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
