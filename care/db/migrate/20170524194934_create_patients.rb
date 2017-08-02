@@ -17,6 +17,7 @@ class CreatePatients < ActiveRecord::Migration[5.0]
     	t.string :province
     	t.string :city
     	t.string :postalcode
+	t.string :comments
 
       t.timestamps
     end

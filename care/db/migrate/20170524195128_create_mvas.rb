@@ -4,7 +4,7 @@ class CreateMvas < ActiveRecord::Migration[5.0]
 
     	t.string :holdername
     	t.date :holderbday
-    	t.integer :adjustorphone
+    	t.bigint :adjustorphone
     	t.integer :claimnumber
     	t.string :relationshiptoclient
     	t.string :adjustorname

@@ -16,6 +16,7 @@ class CreateStaffs < ActiveRecord::Migration[5.0]
     	t.string :type
 	t.integer :visit_id
 	t.integer :patient_id
+	t.string :comments
 
       t.timestamps
     end

@@ -14,6 +14,7 @@ class CreateDoctors < ActiveRecord::Migration[5.0]
     	t.integer :fax
     	t.string :email
     	t.string :type
+	t.string :comments
 
       t.timestamps
     end
