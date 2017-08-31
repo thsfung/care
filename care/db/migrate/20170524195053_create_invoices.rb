@@ -5,8 +5,8 @@ class CreateInvoices < ActiveRecord::Migration[5.0]
     	t.date :issuedate
     	t.float :outstandingamt
     	t.integer :patient_id
-	t.string :comments
-	t.boolean :marked
+	    t.string :comments
+	    t.boolean :marked
 
       t.timestamps
     end

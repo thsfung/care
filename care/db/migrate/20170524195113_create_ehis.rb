@@ -6,7 +6,7 @@ class CreateEhis < ActiveRecord::Migration[5.0]
     	t.string :holdername
     	t.date :holderbday
     	t.string :relationshiptoclient
-	t.integer :insurance_id
+	    t.integer :insurance_id
 
       t.timestamps
     end
