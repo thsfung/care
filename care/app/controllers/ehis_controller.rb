@@ -69,6 +69,7 @@ class EhisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ehi_params
-      params.fetch(:ehi, {})
+      #params.fetch(:ehi, {})
+      params.require(:ehi).permit(:company, :holdername, :holderbday, :relationshiptoclient)
     end
 end

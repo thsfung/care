@@ -69,6 +69,7 @@ class MvasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mva_params
-      params.fetch(:mva, {})
+      #params.fetch(:mva, {})
+      params.require(:mva).permit(:holdername, :holderbday, :claimnumber, :relationshiptoclient, :adjustorname, :branchnumber, :company)
     end
 end

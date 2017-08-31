@@ -69,6 +69,7 @@ class InsurancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def insurance_params
-      params.fetch(:insurance, {})
+      #params.fetch(:insurance, {})
+      params.require(:insurance).permit(:policynumber, :type, :dateofloss)
     end
 end
