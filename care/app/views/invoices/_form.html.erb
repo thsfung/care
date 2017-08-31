@@ -11,6 +11,18 @@
     </div>
   <% end %>
 
+   <%= f.label :issuedate %>
+   <%= f.date_field :issuedate %><br />
+
+    <%= f.label :outstandingamt %>
+  <%= f.text_field :outstandingamt %><br />
+
+   <%= f.label :comments %>
+  <%= f.text_field :comments %><br />
+
+   <%= f.label :marked %>
+  <%= f.text_field :marked %><br />
+
   <div class="actions">
     <%= f.submit %>
   </div>

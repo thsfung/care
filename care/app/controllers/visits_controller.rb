@@ -69,6 +69,7 @@ class VisitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
-      params.fetch(:visit, {})
+      #params.fetch(:visit, {})
+      parmas.require(:visit).permit(:visitdate)
     end
 end
