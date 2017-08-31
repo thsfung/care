@@ -1,6 +1,7 @@
 class Staff < ApplicationRecord
 
-	belongs_to :visit, :foreign_key => "visit_id"
-	belongs_to :patient, :foreign_key => "patient_id"
+	has_many :visits
+	has_many :patient_staffs
+	has_many :patients, :through => :patient_staffs
 
 end

@@ -27,7 +27,8 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.integer  "extension"
     t.integer  "fax"
     t.string   "email"
-    t.string   "type"
+    t.string   "specialization"
+    t.string   "comments"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -61,6 +62,8 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.date     "issuedate"
     t.float    "outstandingamt"
     t.integer  "patient_id"
+    t.string   "comments"
+    t.boolean  "marked"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -68,7 +71,7 @@ ActiveRecord::Schema.define(version: 20170627204410) do
   create_table "mvas", force: :cascade do |t|
     t.string   "holdername"
     t.date     "holderbday"
-    t.integer  "adjustorphone"
+    t.bigint   "adjustorphone"
     t.integer  "claimnumber"
     t.string   "relationshiptoclient"
     t.string   "adjustorname"
@@ -102,6 +105,7 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.string   "province"
     t.string   "city"
     t.string   "postalcode"
+    t.string   "comments"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
@@ -140,6 +144,7 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.string   "type"
     t.integer  "visit_id"
     t.integer  "patient_id"
+    t.string   "comments"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
