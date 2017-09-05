@@ -1,0 +1,34 @@
+<%= form_for(paymethod) do |f| %>
+  <% if paymethod.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(paymethod.errors.count, "error") %> prohibited this paymethod from being saved:</h2>
+
+      <ul>
+      <% paymethod.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :company %>
+  <%= f.text_field :company %><br />
+  <%= f.label :holdername %>
+  <%= f.text_field :holdername %><br />
+  <%= f.label :holderbday %>
+  <%= f.text_field :holderbday %><br />
+  <%= f.label :relationshiptoclient %>
+  <%= f.text_field :relationshiptoclient %><br />
+  <%= f.label :adjustorphone %>
+  <%= f.text_field :adjustorphone %><br />
+  <%= f.label :claimnumber %>
+  <%= f.text_field :claimnumber %><br />
+  <%= f.label :adjustorname %>
+  <%= f.text_field :adjustorname %><br />
+  <%= f.label :branchnumber %>
+  <%= f.text_field :branchnumber %><br />
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

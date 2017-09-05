@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :paymethods
   resources :payments
   resources :icompanies
   resources :mvas

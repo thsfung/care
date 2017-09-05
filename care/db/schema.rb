@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627204410) do
+ActiveRecord::Schema.define(version: 20170905021309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,29 +33,10 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "ehis", force: :cascade do |t|
-    t.string   "company"
-    t.string   "holdername"
-    t.date     "holderbday"
-    t.string   "relationshiptoclient"
-    t.integer  "insurance_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
   create_table "icompanies", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "insurances", force: :cascade do |t|
-    t.integer  "policynumber"
-    t.string   "type"
-    t.date     "dateofloss"
-    t.integer  "patient_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -68,25 +49,20 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "mvas", force: :cascade do |t|
-    t.string   "holdername"
-    t.date     "holderbday"
-    t.bigint   "adjustorphone"
-    t.integer  "claimnumber"
-    t.string   "relationshiptoclient"
-    t.string   "adjustorname"
-    t.integer  "branchnumber"
-    t.string   "company"
-    t.integer  "insurance_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
   create_table "patient_doctors", force: :cascade do |t|
     t.integer  "doctor_id"
     t.integer  "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "patient_staffs", force: :cascade do |t|
+    t.integer  "patient_id"
+    t.integer  "staff_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_patient_staffs_on_patient_id", using: :btree
+    t.index ["staff_id"], name: "index_patient_staffs_on_staff_id", using: :btree
   end
 
   create_table "patients", force: :cascade do |t|
@@ -114,9 +90,23 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.float    "amtdue"
     t.string   "type"
     t.float    "amtpaid"
+    t.integer  "paymethod_id"
     t.integer  "invoice_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "paymethods", force: :cascade do |t|
+    t.string   "company"
+    t.string   "holdername"
+    t.date     "holderbday"
+    t.string   "relationshiptoclient"
+    t.bigint   "adjustorphone"
+    t.integer  "claimnumber"
+    t.string   "adjustorname"
+    t.integer  "branchnumber"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "services", force: :cascade do |t|
@@ -141,7 +131,7 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.string   "postalcode"
     t.bigint   "homephone"
     t.bigint   "cellphone"
-    t.string   "type"
+    t.string   "role"
     t.integer  "visit_id"
     t.integer  "patient_id"
     t.string   "comments"
@@ -157,4 +147,6 @@ ActiveRecord::Schema.define(version: 20170627204410) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "patient_staffs", "patients"
+  add_foreign_key "patient_staffs", "staffs"
 end
