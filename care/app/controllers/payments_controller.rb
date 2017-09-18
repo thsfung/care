@@ -15,10 +15,16 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment = Payment.new
+    @invoice_id = params[:invoice_id]
+    @invoice = Invoice.find_by_id(@invoice_id)
+    @patient_id = @invoice.patient_id
   end
 
   # GET /payments/1/edit
   def edit
+    @invoice_id = @payment.invoice_id
+    @invoice = Invoice.find_by_id(@invoice_id)
+    @patient_id = @invoice.patient_id
   end
 
   # POST /payments
@@ -28,7 +34,7 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
+        format.html { redirect_to Invoice.find_by_id(@payment.invoice_id), notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
       else
         format.html { render :new }
@@ -42,7 +48,7 @@ class PaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @payment.update(payment_params)
-        format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
+        format.html { redirect_to Invoice.find_by_id(@payment.invoice_id), notice: 'Payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment }
       else
         format.html { render :edit }
@@ -70,6 +76,6 @@ class PaymentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
       #params.fetch(:payment, {})
-      params.require(:payment).permit(:amtdue, :type, :amtpaid)
+      params.require(:payment).permit(:invoice_id, :paymethod_id, :amtdue, :amtpaid)
     end
 end

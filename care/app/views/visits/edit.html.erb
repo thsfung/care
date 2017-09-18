@@ -3,4 +3,4 @@
 <%= render 'form', visit: @visit %>
 
 <%= link_to 'Show', @visit %> |
-<%= link_to 'Back', visits_path %>
+<%= link_to 'Back', controller: "patients", action: "show", id: @patient_id %> 

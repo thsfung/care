@@ -10,15 +10,18 @@ class PaymethodsController < ApplicationController
   # GET /paymethods/1
   # GET /paymethods/1.json
   def show
+    @patient_id = @paymethod.patient_id
   end
 
   # GET /paymethods/new
   def new
     @paymethod = Paymethod.new
+    @patient_id = params[:patient_id] 
   end
 
   # GET /paymethods/1/edit
   def edit
+    @patient_id = @paymethod.patient_id
   end
 
   # POST /paymethods
@@ -28,7 +31,7 @@ class PaymethodsController < ApplicationController
 
     respond_to do |format|
       if @paymethod.save
-        format.html { redirect_to @paymethod, notice: 'Paymethod was successfully created.' }
+        format.html { redirect_to Patient.find_by_id(@paymethod.patient_id), notice: 'Paymethod was successfully created.' }
         format.json { render :show, status: :created, location: @paymethod }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class PaymethodsController < ApplicationController
   def update
     respond_to do |format|
       if @paymethod.update(paymethod_params)
-        format.html { redirect_to @paymethod, notice: 'Paymethod was successfully updated.' }
+        format.html { redirect_to Patient.find_by_id(@paymethod.patient_id), notice: 'Paymethod was successfully updated.' }
         format.json { render :show, status: :ok, location: @paymethod }
       else
         format.html { render :edit }
@@ -70,6 +73,6 @@ class PaymethodsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def paymethod_params
       #params.fetch(:paymethod, {})
-      params.require(:paymethod).permit(:company, :holdername, :holderbday, :relationshiptoclient, :adjustorphone, :claimnumber, :adjustorname, :branchnumber)
+      params.require(:paymethod).permit(:paytype, :company, :holdername, :holderbday, :relationshiptoclient, :adjustorphone, :claimnumber, :adjustorname, :branchnumber, :patient_id)
     end
 end

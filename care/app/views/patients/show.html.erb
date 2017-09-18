@@ -17,5 +17,7 @@
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>
 
+<%= render template: "paymethods/index" %>
 <%= render template: "visits/index" %>
 <%= render template: "doctors/index" %>
+<%= render template: "invoices/index" %>

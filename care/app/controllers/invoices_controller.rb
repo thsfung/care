@@ -10,15 +10,18 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+    @payments = @invoice.payments
   end
 
   # GET /invoices/new
   def new
     @invoice = Invoice.new
+    @patient_id = params[:patient_id]
   end
 
   # GET /invoices/1/edit
   def edit
+    @patient_id = @invoice.patient_id
   end
 
   # POST /invoices
@@ -28,7 +31,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
+        format.html { redirect_to Patient.find_by_id(@invoice.patient_id), notice: 'Invoice was successfully created.' }
         format.json { render :show, status: :created, location: @invoice }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class InvoicesController < ApplicationController
   def update
     respond_to do |format|
       if @invoice.update(invoice_params)
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully updated.' }
+        format.html { redirect_to Patient.find_by_id(@invoice.patient_id), notice: 'Invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @invoice }
       else
         format.html { render :edit }
@@ -70,7 +73,7 @@ class InvoicesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
       #params.fetch(:invoice, {})
-      params.require(:invoice).permit(:issuedate, :outstandingamt, :comments, :marked)
+      params.require(:invoice).permit(:issuedate, :outstandingamt, :comments, :marked, :patient_id, {:visit_ids => []}) 
 
     end
 end

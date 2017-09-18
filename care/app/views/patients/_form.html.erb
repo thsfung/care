@@ -52,6 +52,8 @@
 
   <%= f.label :postalcode %>
   <%= f.text_field :postalcode %><br />
+  
+  <%= f.collection_select(:doctor_ids, Doctor.all, :id, :firstname, {}, {:multiple => true}) %><br />
 
   <%= f.label :comments %>
   <%= f.text_field :comments %><br />

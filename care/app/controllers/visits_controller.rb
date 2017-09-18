@@ -15,10 +15,12 @@ class VisitsController < ApplicationController
   # GET /visits/new
   def new
     @visit = Visit.new
+    @patient_id = params[:patient_id]
   end
 
   # GET /visits/1/edit
   def edit
+    @patient_id = @visit.patient_id
   end
 
   # POST /visits
@@ -28,7 +30,7 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
+        format.html { redirect_to Patient.find_by_id(@visit.patient_id), notice: 'Visit was successfully created.' }
         format.json { render :show, status: :created, location: @visit }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class VisitsController < ApplicationController
   def update
     respond_to do |format|
       if @visit.update(visit_params)
-        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
+        format.html { redirect_to Patient.find_by_id(@visit.patient_id), notice: 'Visit was successfully updated.' }
         format.json { render :show, status: :ok, location: @visit }
       else
         format.html { render :edit }
@@ -70,6 +72,6 @@ class VisitsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
       #params.fetch(:visit, {})
-      parmas.require(:visit).permit(:visitdate)
+      params.require(:visit).permit(:visitdate, :staff_id, :service_id, :patient_id)
     end
 end

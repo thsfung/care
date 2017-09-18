@@ -3,7 +3,6 @@ class CreatePayments < ActiveRecord::Migration[5.0]
     create_table :payments do |t|
 
     	t.float :amtdue
-    	t.string :type
     	t.float :amtpaid
 
     	t.integer :paymethod_id

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%=paymethod.company %> <%= paymethod.holdername %>
+<%=@paymethod.paytype %>
 
 <%= link_to 'Edit', edit_paymethod_path(@paymethod) %> |
-<%= link_to 'Back', paymethods_path %>
+<%= link_to 'Back', controller: "patients", action: "show", id: @paymethod.patient_id %> 

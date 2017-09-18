@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= f.label :paytype %>
+  <%= f.text_field :paytype %><br />
   <%= f.label :company %>
   <%= f.text_field :company %><br />
   <%= f.label :holdername %>
@@ -27,6 +29,8 @@
   <%= f.text_field :adjustorname %><br />
   <%= f.label :branchnumber %>
   <%= f.text_field :branchnumber %><br />
+
+  <%= f.hidden_field :patient_id, :value => @patient_id %>
 
   <div class="actions">
     <%= f.submit %>

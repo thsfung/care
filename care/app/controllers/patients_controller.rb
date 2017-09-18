@@ -12,11 +12,15 @@ class PatientsController < ApplicationController
   def show
     @visits = @patient.visits
     @doctors = @patient.doctors
+    @invoices = @patient.invoices
+    @paymethods = @patient.paymethods
   end
 
   # GET /patients/new
   def new
     @patient = Patient.new
+    @doctors = Doctor.all
+    @visits = Visit.all
   end
 
   # GET /patients/1/edit
@@ -72,6 +76,6 @@ class PatientsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
       #params.fetch(:patient, {})
-	 params.require(:patient).permit(:firstname, :lastname, :email, :birthday, :sex, :homephone, :cellphone, :workphone, :extension, :primaryaddress, :country, :province, :city, :postalcode, :comments)
+	    params.require(:patient).permit(:firstname, :lastname, :email, :birthday, :sex, :homephone, :cellphone, :workphone, :extension, :primaryaddress, :country, :province, :city, :postalcode, :comments, {:doctor_ids => []})
     end
 end

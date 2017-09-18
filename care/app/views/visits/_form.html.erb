@@ -10,9 +10,11 @@
       </ul>
     </div>
   <% end %>
-
+  <%= f.hidden_field :patient_id, :value => @patient_id %>
   <%= f.label :visitdate %>
-  <%= f.text_field :visitdate %><br />
+  <%= f.date_field :visitdate %><br />
+  <%= f.collection_select(:staff_id, Staff.all, :id, :firstname) %><br />
+  <%= f.collection_select(:service_id, Service.all, :id, :description) %><br />
 
   <div class="actions">
     <%= f.submit %>

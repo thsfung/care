@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20170905021309) do
   end
 
   create_table "paymethods", force: :cascade do |t|
+    t.string   "paytype"
     t.string   "company"
     t.string   "holdername"
     t.date     "holderbday"
@@ -105,6 +106,7 @@ ActiveRecord::Schema.define(version: 20170905021309) do
     t.integer  "claimnumber"
     t.string   "adjustorname"
     t.integer  "branchnumber"
+    t.integer  "patient_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
@@ -112,7 +114,7 @@ ActiveRecord::Schema.define(version: 20170905021309) do
   create_table "services", force: :cascade do |t|
     t.float    "cost"
     t.string   "description"
-    t.string   "type"
+    t.string   "role"
     t.boolean  "retire"
     t.integer  "visit_id"
     t.datetime "created_at",  null: false
@@ -143,6 +145,8 @@ ActiveRecord::Schema.define(version: 20170905021309) do
     t.date     "visitdate"
     t.integer  "patient_id"
     t.integer  "invoice_id"
+    t.integer  "staff_id"
+    t.integer  "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
