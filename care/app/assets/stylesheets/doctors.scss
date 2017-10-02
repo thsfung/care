@@ -1,3 +1,13 @@
 // Place all the styles related to the doctors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primary-color: #AA6339;
+$secondary-color: #803D15;
+$highlight-color: #FFCAAA;
+
+
+.doctor {
+	grid-column: col 2;
+	grid-row: 2;
+}

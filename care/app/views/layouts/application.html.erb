@@ -9,6 +9,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <div class="menu">
+  		  <%= link_to "Patients", patients_path() %><!--
+  		  --><%= link_to "Doctors", doctors_path() %><!--
+  		  --><%= link_to "Staffs", staffs_path() %><!--
+  		  --><%= link_to "Services", services_path() %> 
+  	  </div> 	
+      <%= yield %>
+      <footer class="footer"> Footer </footer>
+    </div>
   </body>
 </html>

@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: [:show, :edit, :update, :destroy]
+  before_action :set_payment, only: [:show, :edit, :update]
 
   # GET /payments
   # GET /payments.json
@@ -37,6 +37,9 @@ class PaymentsController < ApplicationController
         format.html { redirect_to Invoice.find_by_id(@payment.invoice_id), notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
       else
+        @invoice_id = @payment.invoice_id
+        @invoice = @payment.invoice
+        @patient_id = @invoice.patient_id
         format.html { render :new }
         format.json { render json: @payment.errors, status: :unprocessable_entity }
       end
@@ -51,6 +54,9 @@ class PaymentsController < ApplicationController
         format.html { redirect_to Invoice.find_by_id(@payment.invoice_id), notice: 'Payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment }
       else
+        @invoice_id = @payment.invoice_id
+        @invoice = @payment.invoice
+        @patient_id = @invoice.patient_id
         format.html { render :edit }
         format.json { render json: @payment.errors, status: :unprocessable_entity }
       end
@@ -59,13 +65,13 @@ class PaymentsController < ApplicationController
 
   # DELETE /payments/1
   # DELETE /payments/1.json
-  def destroy
+  /def destroy
     @payment.destroy
     respond_to do |format|
-      format.html { redirect_to payments_url, notice: 'Payment was successfully destroyed.' }
+      format.html { redirect_to Invoice.find_by_id(@payment.invoice_id), notice: 'Payment was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+  end/
 
   private
     # Use callbacks to share common setup or constraints between actions.

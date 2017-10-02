@@ -1,8 +1,12 @@
+<div class='invoice_show'>
+
 <p id="notice"><%= notice %></p>
 
 <%= @invoice.issuedate %> <%= @invoice.outstandingamt %> <%= @invoice.comments %> <%= @invoice.marked %>
 
-<%= render template: "payments/index" %>
-
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', controller: "patients", action: "show", id: @invoice.patient_id %> 
+</div>
+
+
+<%= render template: "payments/index" %>

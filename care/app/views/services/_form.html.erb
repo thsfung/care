@@ -18,10 +18,13 @@
   <%= f.text_field :description %><br />
 
   <%= f.label :role %>
-  <%= f.text_field :role %><br />
+  <%= f.select :role, ['PT', 'MT', 'other'] %><br />
+
+  <%= f.label :tax %>
+  <%= f.text_field :tax %><br />
 
   <%= f.label :retire %>
-  <%= f.text_field :retire %><br />
+  <%= f.check_box :retire %><br />
 
   <div class="actions">
     <%= f.submit %>

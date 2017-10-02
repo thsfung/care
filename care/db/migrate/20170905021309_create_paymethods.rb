@@ -9,7 +9,7 @@ class CreatePaymethods < ActiveRecord::Migration[5.0]
   	  t.date :holderbday
       t.string :relationshiptoclient
 
-      t.bigint :adjustorphone
+      t.string :adjustorphone
       t.integer :claimnumber
       t.string :adjustorname
       t.integer :branchnumber

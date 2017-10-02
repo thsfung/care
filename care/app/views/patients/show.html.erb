@@ -1,13 +1,26 @@
+<div class='patient_show'>
+
 <p id="notice"><%= notice %></p>
 
-<%= @patient.firstname %>&nbsp<%= @patient.lastname %><br />
-<%= @patient.email %><br />
-<%= @patient.birthday %><br />
-<%= @patient.sex %><br />
-<%= @patient.homephone %><br />
-<%= @patient.cellphone %><br />
-<%= @patient.workphone %><br />
-<%= @patient.extension %><br />
+<div class='pat_info'>
+<h1><%= @patient.firstname %>&nbsp<%= @patient.lastname %></h1><br />
+<% if @patient.email != ''%>
+	Email: <%= @patient.email %><br />
+<% end %>
+Birthday: <%= @patient.birthday %><br />
+Sex: <%= @patient.sex %><br />
+<% if @patient.homephone != ''%>
+	Home Phone: <%= @patient.homephone %><br />
+<% end %>
+<% if @patient.cellphone != ''%>
+	<%= @patient.cellphone %><br />
+<% end %>
+<% if @patient.workphone != ''%>
+	<%= @patient.workphone %><br />
+	<% if @patient.extension != ''%>
+		<%= @patient.extension %><br />
+	<% end %>
+<% end %>
 <%= @patient.primaryaddress %><br />
 <%= @patient.country %><br />
 <%= @patient.province %><br />
@@ -16,8 +29,11 @@
 
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>
+</div>
 
 <%= render template: "paymethods/index" %>
 <%= render template: "visits/index" %>
-<%= render template: "doctors/index" %>
+<div class='doc_pat'> <%= render template: "doctors/index" %> </div>
 <%= render template: "invoices/index" %>
+
+</div>

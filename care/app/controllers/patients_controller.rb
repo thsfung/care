@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_patient, only: [:show, :edit, :update]
 
   # GET /patients
   # GET /patients.json
@@ -20,11 +20,11 @@ class PatientsController < ApplicationController
   def new
     @patient = Patient.new
     @doctors = Doctor.all
-    @visits = Visit.all
   end
 
   # GET /patients/1/edit
   def edit
+    @doctors = Doctor.all
   end
 
   # POST /patients
@@ -37,6 +37,7 @@ class PatientsController < ApplicationController
         format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
         format.json { render :show, status: :created, location: @patient }
       else
+        @doctors = Docotr.all
         format.html { render :new }
         format.json { render json: @patient.errors, status: :unprocessable_entity }
       end
@@ -51,6 +52,7 @@ class PatientsController < ApplicationController
         format.html { redirect_to @patient, notice: 'Patient was successfully updated.' }
         format.json { render :show, status: :ok, location: @patient }
       else
+        @doctors = Docotr.all
         format.html { render :edit }
         format.json { render json: @patient.errors, status: :unprocessable_entity }
       end
@@ -59,13 +61,13 @@ class PatientsController < ApplicationController
 
   # DELETE /patients/1
   # DELETE /patients/1.json
-  def destroy
+  /def destroy
     @patient.destroy
     respond_to do |format|
       format.html { redirect_to patients_url, notice: 'Patient was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+  end/
 
   private
     # Use callbacks to share common setup or constraints between actions.

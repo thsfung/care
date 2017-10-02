@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, only: [:show, :edit, :update]
 
   # GET /services
   # GET /services.json
@@ -53,13 +53,13 @@ class ServicesController < ApplicationController
 
   # DELETE /services/1
   # DELETE /services/1.json
-  def destroy
+  /def destroy
     @service.destroy
     respond_to do |format|
       format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+  end/
 
   private
     # Use callbacks to share common setup or constraints between actions.

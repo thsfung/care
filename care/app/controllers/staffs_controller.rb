@@ -1,5 +1,5 @@
 class StaffsController < ApplicationController
-  before_action :set_staff, only: [:show, :edit, :update, :destroy]
+  before_action :set_staff, only: [:show, :edit, :update]
 
   # GET /staffs
   # GET /staffs.json
@@ -53,13 +53,13 @@ class StaffsController < ApplicationController
 
   # DELETE /staffs/1
   # DELETE /staffs/1.json
-  def destroy
+  /def destroy
     @staff.destroy
     respond_to do |format|
       format.html { redirect_to staffs_url, notice: 'Staff was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+  end/
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -70,6 +70,6 @@ class StaffsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def staff_params
       params.fetch(:staff, {})
-params.require(:staff).permit(:firstname, :lastname, :sinnumber, :primaryaddress, :secondaryaddress, :country, :province, :city, :postalcode, :homephone, :cellphone, :role, :comments)
+params.require(:staff).permit(:firstname, :lastname, :sinnumber, :primaryaddress, :secondaryaddress, :country, :province, :city, :postalcode, :email, :homephone, :cellphone, :role, :comments)
     end
 end

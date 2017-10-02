@@ -38,6 +38,9 @@
   <%= f.label :postalcode %>
   <%= f.text_field :postalcode %><br />
 
+  <%= f.label :email %>
+  <%= f.text_field :email %><br />
+
   <%= f.label :homephone %>
   <%= f.text_field :homephone %><br />
 
@@ -45,7 +48,7 @@
   <%= f.text_field :cellphone %><br />
 
   <%= f.label :role %>
-  <%= f.text_field :role %><br />
+  <%= f.select  :role, ['PT', 'MT', 'kin', 'admin'] %><br />
 
   <div class="actions">
     <%= f.submit %>

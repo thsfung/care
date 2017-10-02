@@ -15,7 +15,7 @@
    <%= f.date_field :issuedate %><br />
    <%= f.hidden_field :patient_id, :value => @patient_id %>
 
-   <%= f.collection_select(:visit_ids, Visit.where(:patient_id => @patient_id, :invoice_id => nil), :id, :visitdate, {}, {:multiple => true}) %><br />
+   <%= f.collection_select(:visit_ids, @visits, :id, :visitdate, {}, {:multiple => true}) %><br />
 
    <%= f.label :outstandingamt %>
    <%= f.text_field :outstandingamt %><br />
@@ -24,7 +24,7 @@
   <%= f.text_field :comments %><br />
 
    <%= f.label :marked %>
-  <%= f.text_field :marked %><br />
+  <%= f.check_box :marked %><br />
 
   <div class="actions">
     <%= f.submit %>

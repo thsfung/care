@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<div class='visit'>
 <h1>Visits</h1>
 
 <table>
@@ -12,9 +11,8 @@
   <tbody>
     <% @visits.each do |visit| %>
       <tr>
-        <td><%= link_to 'Show', visit %></td>
+        <td><%= visit.visitdate %></td>
         <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
-        <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,3 +21,5 @@
 <br>
 
 <%= link_to 'New Visit', new_visit_path(:patient_id => @patient.id) %>
+
+</div>

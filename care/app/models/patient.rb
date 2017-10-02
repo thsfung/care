@@ -29,7 +29,7 @@ class Patient < ApplicationRecord
 
 	private
 		def contact_info
-			unless homephone.blank? or cellphone.blank? or workphone.blank? or email.blank?
+			if homephone.blank? and cellphone.blank? and workphone.blank? and email.blank?
 				errors.add(:base, "Please add a way we can contact you.")
 			end
 
@@ -37,11 +37,10 @@ class Patient < ApplicationRecord
 			self.firstname = self.firstname.strip unless self.firstname.nil?
 			self.lastname = self.lastname.strip unless self.lastname.nil?
 			self.email = self.email.strip unless self.email.nil?
-			#self.homephone = self.homephone.strip unless self.homephone.nil?
-			#self.cellphone = self.cellphone.strip unless self.cellphone.nil?
-			#self.workphone = self.workphone.strip unless self.workphone.nil?
-			#self.extension = self.extension.strip unless self.extension.nil?
-			#self.homephone = self.homephone.gsub(/\D/, '') unless self.homephone.nil?
+			self.homephone = self.homephone.gsub(/\D/, '') unless self.homephone.nil?
+			self.cellphone = self.cellphone.gsub(/\D/, '') unless self.cellphone.nil?
+			self.workphone = self.workphone.gsub(/\D/, '') unless self.workphone.nil?
+			self.extension = self.extension.gsub(/\D/, '') unless self.extension.nil?
 			self.primaryaddress = self.primaryaddress.strip unless self.primaryaddress.nil?
 			self.country = self.country.strip unless self.country.nil?
 			self.province = self.province.strip unless self.province.nil?

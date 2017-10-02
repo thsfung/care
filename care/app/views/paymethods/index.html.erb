@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Paymethods</h1>
+<div class='paymethod'>
+<h1>Payment Options</h1>
 
 <table>
   <thead>
@@ -12,9 +11,8 @@
   <tbody>
     <% @paymethods.each do |paymethod| %>
       <tr>
-        <td><%= link_to 'Show', paymethod %></td>
+        <td><%= paymethod.paytype %></td>
         <td><%= link_to 'Edit', edit_paymethod_path(paymethod) %></td>
-        <td><%= link_to 'Destroy', paymethod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,3 +21,5 @@
 <br>
 
 <%= link_to 'New Paymethod', new_paymethod_path(:patient_id => @patient.id) %>
+
+</div>

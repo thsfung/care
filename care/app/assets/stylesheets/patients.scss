@@ -1,3 +1,69 @@
 // Place all the styles related to the patients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primary-color: #AA6339;
+$secondary-color: #803D15;
+$highlight-color: #FFCAAA;
+
+.patient {
+	grid-column: col 2;
+	grid-row: 2;
+
+}
+
+.patient_show {
+	grid-column: col 2;
+	grid-row: 2;
+
+	display: grid;
+	grid-template-columns: (col) auto (col) auto (col) auto;
+	grid-template-rows: auto auto auto;
+	grid-gap: 50px;
+
+}
+
+.pat_info {
+	grid-column: col 0;
+	grid-row: 1;
+	background: $highlight-color;
+
+	padding: 20px;
+	border-radius: 20px;
+}
+
+.invoice {
+	grid-column: col 1;
+	grid-row: 2;
+
+	padding: 20px;
+	background: $highlight-color;
+	border-radius: 20px;
+}
+
+.paymethod {
+	grid-column: col 1;
+	grid-row: 1;
+
+	padding: 20px;
+	background: $highlight-color;
+	border-radius: 20px;
+}
+
+.visit {
+	grid-column: col 0;
+	grid-row: 2;
+
+	padding: 20px;
+	background: $highlight-color;
+	border-radius: 20px;
+}
+
+.doc_pat {
+	grid-column: col 2;
+	grid-row: 1;
+
+	padding: 20px;
+	background: $highlight-color;
+	border-radius: 20px;
+}

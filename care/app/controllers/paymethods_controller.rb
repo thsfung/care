@@ -1,5 +1,5 @@
 class PaymethodsController < ApplicationController
-  before_action :set_paymethod, only: [:show, :edit, :update, :destroy]
+  before_action :set_paymethod, only: [:show, :edit, :update]
 
   # GET /paymethods
   # GET /paymethods.json
@@ -34,6 +34,7 @@ class PaymethodsController < ApplicationController
         format.html { redirect_to Patient.find_by_id(@paymethod.patient_id), notice: 'Paymethod was successfully created.' }
         format.json { render :show, status: :created, location: @paymethod }
       else
+        @patient_id = @paymethod.patient_id
         format.html { render :new }
         format.json { render json: @paymethod.errors, status: :unprocessable_entity }
       end
@@ -48,6 +49,7 @@ class PaymethodsController < ApplicationController
         format.html { redirect_to Patient.find_by_id(@paymethod.patient_id), notice: 'Paymethod was successfully updated.' }
         format.json { render :show, status: :ok, location: @paymethod }
       else
+        @patient_id = @paymethod.patient_id
         format.html { render :edit }
         format.json { render json: @paymethod.errors, status: :unprocessable_entity }
       end
@@ -56,13 +58,13 @@ class PaymethodsController < ApplicationController
 
   # DELETE /paymethods/1
   # DELETE /paymethods/1.json
-  def destroy
+  /def destroy
     @paymethod.destroy
     respond_to do |format|
-      format.html { redirect_to paymethods_url, notice: 'Paymethod was successfully destroyed.' }
+      format.html { redirect_to Patient.find_by_id(@paymethod.patient_id), notice: 'Paymethod was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+  end/
 
   private
     # Use callbacks to share common setup or constraints between actions.

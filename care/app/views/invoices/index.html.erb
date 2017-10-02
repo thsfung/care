@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div class='invoice'>
 
 <h1>Invoices</h1>
 
@@ -12,9 +12,10 @@
   <tbody>
     <% @invoices.each do |invoice| %>
       <tr>
+        <td><%= invoice.id %></td>
+        <td><%= invoice.issuedate %></td>
         <td><%= link_to 'Show', invoice %></td>
         <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-        <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,3 +24,4 @@
 <br>
 
 <%= link_to 'New Invoice', new_invoice_path(:patient_id => @patient.id) %>
+</div>

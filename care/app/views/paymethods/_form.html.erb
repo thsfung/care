@@ -11,14 +11,15 @@
     </div>
   <% end %>
 
+  <%= @patient_id %>
   <%= f.label :paytype %>
-  <%= f.text_field :paytype %><br />
+  <%= f.select :paytype, ['EHR', 'MVA', 'credit'] %><br />
   <%= f.label :company %>
   <%= f.text_field :company %><br />
   <%= f.label :holdername %>
   <%= f.text_field :holdername %><br />
   <%= f.label :holderbday %>
-  <%= f.text_field :holderbday %><br />
+  <%= f.date_field :holderbday %><br />
   <%= f.label :relationshiptoclient %>
   <%= f.text_field :relationshiptoclient %><br />
   <%= f.label :adjustorphone %>

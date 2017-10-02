@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  before_action :set_doctor, only: [:show, :edit, :update, :destroy]
+  before_action :set_doctor, only: [:show, :edit, :update]
 
   # GET /doctors
   # GET /doctors.json
@@ -53,13 +53,13 @@ class DoctorsController < ApplicationController
 
   # DELETE /doctors/1
   # DELETE /doctors/1.json
-  def destroy
+  /def destroy
     @doctor.destroy
     respond_to do |format|
       format.html { redirect_to doctors_url, notice: 'Doctor was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+  end/
 
   private
     # Use callbacks to share common setup or constraints between actions.
